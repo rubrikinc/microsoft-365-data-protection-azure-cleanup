@@ -22,6 +22,8 @@ Rubrik Polaris automatically creates a new Azure Resource Group that logically c
 ```
 PS /Users/drewrussell/Development/microsoft-365-cleanup> ./365-Azure-Environment-Cleanup.ps1
 
+Removing the Rubrik Enterprise App
+
 Microsoft Azure Subscriptions:
  0: RubrikSub1
  1: RubrikSub2
