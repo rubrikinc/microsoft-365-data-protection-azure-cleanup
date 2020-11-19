@@ -6,6 +6,7 @@ Connect-AzAccount | Out-Null
 
 # Find and Delete the Rubrik Service Principal
 Write-Output "`nRemoving the Rubrik Enterprise App"
+$AllEnterpriseApp = Get-AzADServicePrincipal
 Remove-AzADServicePrincipal -ServicePrincipalName ($AllEnterpriseApp.DisplayName -match "Rubrik Azure Integration")
 
 $Subscriptions = Get-AzSubscription
@@ -65,8 +66,7 @@ While (!($CustomerSelectedResourceGroup -In 0 .. ($ResourceGroups.Count - 1))) {
 Write-Output ""
 # Remove the Resource Group -- this automatically includes a confirmation prompt
 Remove-AzResourceGroup -Name $ResourceGroups[$CustomerSelectedResourceGroup].ResourceGroupName
-# Optionally add -AsJob to make the process asynchronous
-# $DeleteResourceGroup = Remove-AzResourceGroup -Name $ResourceGroups[$CustomerSelectedResourceGroup].ResourceGroupName -AsJob
+# Optionally add -AsJob to the end of the cmdlet to make the process asynchronous
 
 
 
