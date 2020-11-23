@@ -22,7 +22,13 @@ Rubrik Polaris automatically creates a new Azure Resource Group that logically c
 ```
 PS /Users/drewrussell/Development/microsoft-365-cleanup> ./365-Azure-Environment-Cleanup.ps1
 
-Removing the Rubrik Enterprise App
+Looking for the Rubrik Enterprise App
+Removing the Service Principal: 'Rubrik Azure Integration - polaris-domain-name'
+
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Removing service principal ..." on target "13732bc0-e1ee-49d8-e7f2-4e531c389716".
+[Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Yes"): Y  
 
 Microsoft Azure Subscriptions:
  0: RubrikSub1
