@@ -5,9 +5,12 @@ $WarningPreference = "SilentlyContinue"
 Connect-AzAccount | Out-Null
 
 # Find and Delete the Rubrik Service Principal
-Write-Output "`nRemoving the Rubrik Enterprise App"
-$AllEnterpriseApp = Get-AzADServicePrincipal
-Remove-AzADServicePrincipal -ServicePrincipalName ($AllEnterpriseApp.DisplayName -match "Rubrik Azure Integration")
+Write-Output "`Looking for the Rubrik Enterprise App"
+$AllEnterpriseApp = Get-AzADServicePrincipal -DisplayNameBeginsWith "Rubrik Azure Integration"
+$EnterpriseAppName = $AllEnterpriseApp.DisplayName
+Write-Output -InputObject "Removing the Service Principal: '${EnterpriseAppName}'"  
+Write-Output ""
+Remove-AzADServicePrincipal -ApplicationId $AllEnterpriseApp.ApplicationId -Confirm
 
 $Subscriptions = Get-AzSubscription
 Write-Output "Microsoft Azure Subscriptions:"
