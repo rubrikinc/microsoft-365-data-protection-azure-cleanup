@@ -2,7 +2,7 @@
 $WarningPreference = "SilentlyContinue"
 
 # Open webpage to authenticate to Azure
-# Connect-AzAccount | Out-Null
+Connect-AzAccount | Out-Null
 
 # Find and Delete the Rubrik Service Principal
 Write-Output "`Looking for the Rubrik Enterprise App"
