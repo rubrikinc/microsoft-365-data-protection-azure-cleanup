@@ -10,7 +10,6 @@ $AllEnterpriseApp = Get-AzADServicePrincipal -DisplayNameBeginsWith "Rubrik Azur
 $EnterpriseAppName = $AllEnterpriseApp.DisplayName
 Write-Output -InputObject "Removing the Service Principal: '${EnterpriseAppName}'"  
 Write-Output ""
-# $RubrikServiceProviderDisplayName = ($AllEnterpriseApp.DisplayName -match "rubrik-se") | Out-String
 Remove-AzADServicePrincipal -ApplicationId $AllEnterpriseApp.ApplicationId -Confirm
 
 $Subscriptions = Get-AzSubscription
